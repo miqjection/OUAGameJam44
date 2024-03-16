@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     private void Walk()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(horizontalInput, 0, 0) * 100 * speed * Time.deltaTime;
+        Vector2 movement = new Vector2(horizontalInput *100 * speed * Time.deltaTime, 0);
+
+        print(movement);
         rb.velocity = movement;
     }
 
