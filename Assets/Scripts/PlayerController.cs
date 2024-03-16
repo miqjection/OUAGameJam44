@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         if(horizontalInput < 0)
         {
-            transform.localScale = -transform.localScale;
+            
         }
     }
 }
