@@ -4,10 +4,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
+
+    [SerializeField] private GameObject _camera;
+
     private bool isGrounded;
+
+    public bool canMove = true;
 
     private float horizontalInput;
     private float scaleX;
@@ -15,6 +22,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
 
+    private void Awake()
+    {
+        instance = this;
+    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,26 +35,33 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (canMove)
+        {
+            if (isGrounded)
+                Walk();
+
+
+            if (Input.GetKey(KeyCode.Space) && isGrounded)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                //isGrounded = false;
+            }
+
+            if (Input.GetKey(KeyCode.Space) && rb.velocity.y > 0f)
+            {
+                //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
+
+            LookRotation();
+        }
+
+        else
+            horizontalInput = 0;
+
         WalkAnimation();
-        LookRotation();
 
-        print(isGrounded);
-
-
-        if (isGrounded)
-            Walk();
-
-
-        if (Input.GetKey(KeyCode.Space) && isGrounded)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-            //isGrounded = false;
-        }
-
-        if (Input.GetKey(KeyCode.Space) && rb.velocity.y > 0f)
-        {
-            //rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
+        float x = transform.position.x;
+        _camera.transform.position = new Vector3(x, _camera.transform.position.y, _camera.transform.position.z);
     }
 
     private void Walk()
@@ -52,12 +70,6 @@ public class PlayerController : MonoBehaviour
         Vector2 movement = new Vector2(horizontalInput *100 * speed * Time.deltaTime, 0);
 
         rb.velocity = movement;
-    }
-
-    private void Jump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
-        isGrounded = false;
     }
 
     private void WalkAnimation()
