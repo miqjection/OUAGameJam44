@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -25,6 +26,28 @@ public class PlayerCollision : MonoBehaviour
 
             InvokeRepeating("Escape", 2, 0.003f);
         }
+
+        if (collision.gameObject.CompareTag("Key"))
+        {
+            Destroy(collision.gameObject);
+            DoorManager.instance.hasKey = true;
+        }
+
+        if (collision.gameObject.CompareTag("level2End"))
+        {
+            SceneManager.LoadScene(2);
+        }
+
+        if (collision.gameObject.CompareTag("level3End"))
+        {
+            SceneManager.LoadScene(3);
+        }
+
+        if (collision.gameObject.CompareTag("level4End"))
+        {
+            SceneManager.LoadScene(4);
+        }
+
 
         { 
             if (collision.gameObject.CompareTag("Button1"))
@@ -58,7 +81,7 @@ public class PlayerCollision : MonoBehaviour
         {
             print("ad");
             PlayerController.instance.canMove = false;
-            PlayerAnimation.instance.isDead = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

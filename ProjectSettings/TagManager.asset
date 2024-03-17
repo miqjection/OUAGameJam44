@@ -12,6 +12,11 @@ TagManager:
   - Button2
   - Button3
   - obstacle
+  - Key
+  - level1End
+  - level2End
+  - level3End
+  - level4End
   layers:
   - Default
   - TransparentFX

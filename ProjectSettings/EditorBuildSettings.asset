@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: "Assets/Scenes/Eyl\xFCl3.unity"
+    guid: ff53355b114d5f241a6713dd42ea432d
+  - enabled: 1
+    path: "Assets/Scenes/Eyl\xFCl4.unity"
+    guid: 7bd0133e1e797084889f763242de2760
+  - enabled: 1
     path: "Assets/Scenes/Eyl\xFCl.unity"
     guid: 209728857e7af9a4884955ad712bb2b8
   - enabled: 1
     path: "Assets/Scenes/Eyl\xFCl2.unity"
     guid: b8f8c4398beca7f4aa3386572430468a
+  - enabled: 1
+    path: "Assets/Scenes/Eyl\xFCl5.unity"
+    guid: 59f100b8f4dde8d4c974da45cd361314
   m_configObjects: {}
