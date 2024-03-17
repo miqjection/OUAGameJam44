@@ -10,7 +10,7 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] private bool isIdle;
     public bool isWalk;
-    [SerializeField] private bool isDead;
+    public bool isDead;
     [SerializeField] private bool isAttack;
 
     private void Awake()

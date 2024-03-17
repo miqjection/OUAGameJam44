@@ -26,7 +26,11 @@ public class BallManager : MonoBehaviour
     void Update()
     {
         if(isCollisionPlayer && canHoldBall)
+        {
             transform.position = dogHoldBallTransform.position;
+            transform.rotation = Quaternion.identity;
+        }
+            
     }
 
     private void BallAdforce()

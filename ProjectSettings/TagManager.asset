@@ -8,6 +8,10 @@ TagManager:
   - DropBallTrigger
   - SeeEnemyTrigger
   - enemy
+  - Button1
+  - Button2
+  - Button3
+  - obstacle
   layers:
   - Default
   - TransparentFX
