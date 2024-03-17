@@ -10,8 +10,8 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] private bool isIdle;
     public bool isWalk;
-    [SerializeField] private bool isDeath;
-    [SerializeField] private bool isAtack;
+    [SerializeField] private bool isDead;
+    [SerializeField] private bool isAttack;
 
     private void Awake()
     {
@@ -26,8 +26,8 @@ public class PlayerAnimation : MonoBehaviour
     void Update()
     {
         playerAnimator.SetBool("isWalk", isWalk);
-        playerAnimator.SetBool("isAtack", isAtack);
-        playerAnimator.SetBool("isDeath", isDeath);
+        playerAnimator.SetBool("isAttack", isAttack);
+        playerAnimator.SetBool("isDead", isDead);
 
     }
 }
